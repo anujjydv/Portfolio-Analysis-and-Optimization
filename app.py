@@ -180,7 +180,27 @@ def risk_metrics(weights, returns_df, mkt_rets, rf, mkt_ann_return):
     }
 
 
-if run_button or True:
+if run_button:
+    st.session_state.analysis_run = True
+    st.session_state.tickers = tickers
+    st.session_state.market_index = market_index
+    st.session_state.start_date = start_date
+    st.session_state.end_date = end_date
+    st.session_state.rf = rf
+    st.session_state.rf_pct = rf_pct
+
+if not st.session_state.get("analysis_run", False):
+    st.info("👈 Set your tickers and settings in the sidebar, then click **Run Analysis** to get started.")
+    st.stop()
+
+tickers = st.session_state.get("tickers", tickers)
+market_index = st.session_state.get("market_index", market_index)
+start_date = st.session_state.get("start_date", start_date)
+end_date = st.session_state.get("end_date", end_date)
+rf = st.session_state.get("rf", rf)
+rf_pct = st.session_state.get("rf_pct", rf_pct)
+
+if True:
     if not tickers:
         st.warning("Add at least one ticker.")
         st.stop()

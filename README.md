@@ -48,7 +48,9 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-This opens the app in your browser at `http://localhost:8501`. (Or, in VS Code, just hit the ▶️ Run button — the script auto-detects and relaunches itself through Streamlit.)
+This opens the app in your browser at `http://localhost:8501`.
+
+> ⚠️ **Don't use VS Code's ▶️ Run button** — it executes the file with plain `python`, not Streamlit, which will error out or silently do nothing. Always launch it from a terminal with `streamlit run app.py`.
 
 ## Usage
 1. Enter comma-separated stock tickers in the sidebar (e.g., `AAPL, MSFT, GOOGL, AMZN`)
